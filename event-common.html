@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Common Way</title>
+</head>
+<body>
+    <p id="clicking-method">  </p>
+
+    <input id="name-field" type="text">
+    <button id="update-name">update</button>
+
+    <button onclick="handleJustFunctionClick()">Just function</button>
+    <!-- handle event -->
+    <button id="direct-event">Direct addListener Shortcut</button>
+
+
+    <!-- js -->
+    <script>
+
+        //using function
+        function handleJustFunctionClick(){
+            const p = document.getElementById('clicking-method');
+            p.innerText = ('Set by using Function');
+        }
+
+        //direct event addEventListener()
+        document.getElementById('direct-event').addEventListener('click', function(){
+            //document.body.style.backgroundColor = 'yellow';
+            const p = document.getElementById('clicking-method');
+            p.innerText = 'Set by Direct Event';
+        });
+
+        //another direct event
+        document.getElementById('update-name').addEventListener('click', function(){
+            const nameField = document.getElementById('name-field');
+            //console.log(nameField.value);
+            const p = document.getElementById('clicking-method');
+            p.innerText = nameField.value;
+            nameField.value = '';
+        });
+    </script>
+</body>
+</html>
